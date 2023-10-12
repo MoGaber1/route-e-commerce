@@ -4,7 +4,7 @@
     <input [(ngModel)]="searchTerm" type="text" placeholder="What are you looking for?"
       class="form-control w-100 mx-auto py-3 my-4">
 
-    <div *ngFor="let product of products|search:searchTerm" class="col-md-2">
+    <div *ngFor="let product of products|search:searchTerm" class="col-md-2 col-6">
       <div class="product overflow-hidden p-3 ">
         <a [routerLink]="['/productDetails', product._id]">
           <img src="{{product.imageCover}}" class="img-fluid rounded-2" alt="">
