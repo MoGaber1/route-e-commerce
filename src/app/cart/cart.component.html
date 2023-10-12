@@ -1,0 +1,44 @@
+<div class="container">
+  <div *ngIf="cartDetails;else empty" class="bg-main-light rounded-3 p-4 my-4 w-75 mx-auto">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 >Shop Cart</h3>
+      <button (click)="clearCart()" class="btn text-danger fw-bold">
+        Clear All
+      </button>
+    </div>
+
+    <h6 class="text-main pb-3 border-bottom">Total price : {{cartDetails?.totalCartPrice}}</h6>
+
+    <div *ngFor="let item of cartDetails?.products" class="row py-3">
+      <div class="col-md-2">
+        <img [src]="item.product.imageCover" class="img-fluid rounded-2" alt="">
+      </div>
+      <div class="col-md-10 d-flex justify-content-between align-items-center">
+        <div>
+          <h6 class="fw-semibold">{{item.product.title}}</h6>
+          <h6 class="text-main fw-medium">Price : {{item.price | currency:"EGP "}}</h6>
+          <button class="border-0 m-0 p-0 bg-transparent text-danger" (click)="removeItem(item.product._id)"><i
+              class="fa-regular fa-trash-can me-1"></i>Remove</button>
+        </div>
+        <div class="ps-5 d-flex justify-content-between align-items-center">
+          <button (click)="updateProductCount(item.product._id,item.count+1)" class="btn" b>+</button>
+          <span class="mx-2">{{item.count}}</span>
+          <button (click)="updateProductCount(item.product._id,item.count-1)" class="btn">-</button>
+        </div>
+      </div>
+    </div>
+    <button class="btn g-btn mt-3">
+      <a  class="text-white" [routerLink]="['/checkout',cartDetails._id]">Checkout</a>
+    </button>
+  </div>
+
+  <ng-template #empty>
+    <div  class=" bg-main-light rounded-3 p-4 my-4 w-75 mx-auto h-100">
+        <h3 class="fw-bold text-center">Your Cart Is Empty</h3>
+      <div class="w-25 mx-auto">
+        <img src="../../assets/images/Empty-pana.png" class="img-fluid " alt="">
+      </div>
+    </div>
+
+  </ng-template>
+</div>

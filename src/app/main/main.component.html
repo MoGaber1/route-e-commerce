@@ -1,0 +1,39 @@
+<div class="container">
+
+  <div class="row">
+    <app-main-slider></app-main-slider>
+    <app-categories-slider></app-categories-slider>
+    <input [(ngModel)]="searchTerm" type="text" placeholder="What are you looking for?"
+      class="form-control w-100 mx-auto py-3 my-4">
+
+    <div *ngFor="let product of products|search:searchTerm" class="col-md-2">
+      <div class="product position-relative overflow-hidden p-3 ">
+        <a [routerLink]="['/productDetails', product._id]">
+          <img src="{{product.imageCover}}" class="img-fluid rounded-2" alt="">
+          <span class="font-sm text-main fw-semibold">{{product.category.name}}</span>
+          <h3 class="h6 fw-bolder ">{{product.title.split(' ').slice(0,2).join(' ')|customPrice}}</h3>
+          <div class="d-flex justify-content-between">
+            <span class="font-sm text-muted fw-medium">{{product.price|currency:'LE'}}</span>
+            <span class="font-sm rating-color fw-medium"><i class="fas fa-star rating-color"></i>
+              {{product.ratingsAverage}}
+
+            </span>
+          </div>
+
+        </a>
+
+        <a  (click)="addToWishList(product._id)" class="position-absolute top-0 end-0 cursor-pointer">
+          <div class="px-1 m-2 rounded-2 bg-dark-subtle">
+            <i class="fa-regular fa-heart" style="color: #c91818;"></i>
+          </div>
+        </a>
+
+
+        <button (click)="addToCart(product._id)" class="btn g-btn w-100 mt-3">+ Add</button>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
