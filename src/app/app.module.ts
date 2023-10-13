@@ -28,6 +28,7 @@ import { CategoriesSliderComponent } from './categories-slider/categories-slider
 import { MainSliderComponent } from './main-slider/main-slider.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 
@@ -52,6 +53,7 @@ CategoriesSliderComponent,
 MainSliderComponent,
 CheckoutComponent,
 ProductDetailsComponent,
+WishlistComponent,
 
 SearchPipe,
 CustomPricePipe,

@@ -15,6 +15,7 @@ import { BrandsComponent } from './brands/brands.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 
 
@@ -28,10 +29,11 @@ const routes: Routes = [
   {path:'login',component:LoginComponent,title:'Login'},
   {path:'home',component:MainComponent, title:'Home'},
   {path:'cart',component:CartComponent, title:'Cart'},
+  {path:'wishList',component:WishlistComponent, title:'Wishlist'},
   {path:'products',component:ProductsComponent, title:'Products'},
   {path:'categories',component:CategoriesComponent, title:'Categories'},
   {path:'brands',component:BrandsComponent, title:'Brands'},
-  {path:'checkout/:id',component:CheckoutComponent, title:'checkout'},
+  {path:'checkout/:id',component:CheckoutComponent, title:'Checkout'},
   {path:'productDetails/:id',component:ProductDetailsComponent, title:''},
 
 
