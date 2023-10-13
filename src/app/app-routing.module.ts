@@ -14,6 +14,8 @@ import { BrandsComponent } from './brands/brands.component';
 
 import { NotfoundComponent } from './notfound/notfound.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
+
 
 
 
@@ -29,7 +31,8 @@ const routes: Routes = [
   {path:'products',component:ProductsComponent, title:'Products'},
   {path:'categories',component:CategoriesComponent, title:'Categories'},
   {path:'brands',component:BrandsComponent, title:'Brands'},
-  {path:'checkout',component:CheckoutComponent, title:'checkout'},
+  {path:'checkout/:id',component:CheckoutComponent, title:'checkout'},
+  {path:'productDetails/:id',component:ProductDetailsComponent, title:''},
 
 
 
