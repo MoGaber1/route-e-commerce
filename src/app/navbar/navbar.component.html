@@ -6,7 +6,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="collapsibleNavId">
-    <ul  class="navbar-nav m-auto mt-2 mt-lg-0">
+    <ul *ngIf="isLogin"  class="navbar-nav m-auto mt-2 mt-lg-0">
       <li class="nav-item ms-2">
         <a class="nav-link" routerLink="home" routerLinkActive="navActiveColor">Home</a>
       </li>
@@ -26,19 +26,19 @@
     </ul>
     <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
       <li class="nav-item ms-2">
-        <a class="nav-link" routerLink="signup" routerLinkActive="navActiveColor">Signup</a>
+        <a *ngIf="!isLogin"  class="nav-link" routerLink="signup" routerLinkActive="navActiveColor">Signup</a>
       </li>
-      <li class="nav-item ms-2">
+      <li *ngIf="!isLogin"  class="nav-item ms-2">
         <a class="nav-link" routerLink="login" routerLinkActive="navActiveColor">Login</a>
       </li>
-      <li class="nav-item ms-2">
+      <li *ngIf="isLogin"  class="nav-item ms-2">
         <a class="nav-link position-relative" routerLink="cart" routerLinkActive="text-danger">
           <i  class="fas fa-cart-shopping fa-xl"></i>
           <span class="badge bg-main text-white position-absolute top-0 end-0">{{cartNumbers}}</span>
         </a>
       </li>
 
-      <li (click)="logOut()"  class="nav-item ms-2">
+      <li *ngIf="isLogin"  (click)="logOut()"  class="nav-item ms-2">
         <span class="nav-link cursor-pointer" >Logout</span>
       </li>
 

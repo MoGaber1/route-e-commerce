@@ -17,6 +17,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
+import { authGuard } from 'src/core/auth.guard';
 
 
 
@@ -29,14 +30,14 @@ const routes: Routes = [
   {path:'signup',component:SignupComponent,title:'Signup'},
   {path:'login',component:LoginComponent,title:'Login'},
   {path:'forgotPassword',component:ForgotpasswordComponent,title:'Forgot Password'},
-  {path:'home',component:MainComponent, title:'Home'},
-  {path:'cart',component:CartComponent, title:'Cart'},
-  {path:'wishList',component:WishlistComponent, title:'Wishlist'},
-  {path:'products',component:ProductsComponent, title:'Products'},
-  {path:'categories',component:CategoriesComponent, title:'Categories'},
-  {path:'brands',component:BrandsComponent, title:'Brands'},
-  {path:'checkout/:id',component:CheckoutComponent, title:'Checkout'},
-  {path:'productDetails/:id',component:ProductDetailsComponent, title:''},
+  {path:'home',canActivate:[authGuard] ,component:MainComponent, title:'Home'},
+  {path:'cart',canActivate:[authGuard] ,component:CartComponent, title:'Cart'},
+  {path:'wishList',canActivate:[authGuard] ,component:WishlistComponent, title:'Wishlist'},
+  {path:'products',canActivate:[authGuard] ,component:ProductsComponent, title:'Products'},
+  {path:'categories',canActivate:[authGuard] ,component:CategoriesComponent, title:'Categories'},
+  {path:'brands',canActivate:[authGuard] ,component:BrandsComponent, title:'Brands'},
+  {path:'checkout/:id',canActivate:[authGuard] ,component:CheckoutComponent, title:'Checkout'},
+  {path:'productDetails/:id',canActivate:[authGuard] ,component:ProductDetailsComponent, title:''},
 
 
 
