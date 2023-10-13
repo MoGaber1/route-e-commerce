@@ -29,7 +29,7 @@ import { MainSliderComponent } from './main-slider/main-slider.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 
@@ -54,6 +54,7 @@ MainSliderComponent,
 CheckoutComponent,
 ProductDetailsComponent,
 WishlistComponent,
+ForgotpasswordComponent,
 
 SearchPipe,
 CustomPricePipe,

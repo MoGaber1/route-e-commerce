@@ -35,7 +35,7 @@ constructor (private _ProductsService:ProductsService,
 
       const newWishData = response.data.map((item:any)=>item._id)
       console.log('newData',newWishData);
-       this.wishlistData = newWishData 
+      this.wishlistData = newWishData
 
     }
   })

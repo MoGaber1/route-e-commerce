@@ -16,6 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { ForgotpasswordComponent } from './forgotpassword/forgotpassword.component';
 
 
 
@@ -27,6 +28,7 @@ const routes: Routes = [
 
   {path:'signup',component:SignupComponent,title:'Signup'},
   {path:'login',component:LoginComponent,title:'Login'},
+  {path:'forgotPassword',component:ForgotpasswordComponent,title:'Forgot Password'},
   {path:'home',component:MainComponent, title:'Home'},
   {path:'cart',component:CartComponent, title:'Cart'},
   {path:'wishList',component:WishlistComponent, title:'Wishlist'},

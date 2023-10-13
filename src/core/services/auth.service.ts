@@ -55,5 +55,19 @@ export class AuthService {
   }
 
 
+  forgotPassword(userEmail:object):Observable<any>{
+    return this._HttpClient.post ('https://ecommerce.routemisr.com/api/v1/auth/forgotPasswords',userEmail)
+  }
+
+  resetCode (resetCode:object):Observable<any>{
+    return this._HttpClient.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode',resetCode)
+  }
+
+resetPass (userInfo:object):Observable<any>{
+return this._HttpClient.put('https://ecommerce.routemisr.com/api/v1/auth/resetPassword',userInfo)
+
+}
+
+
 
 }
