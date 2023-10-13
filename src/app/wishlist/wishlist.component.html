@@ -8,12 +8,12 @@
 
 
         <div *ngFor="let item of wishlistDetails" class="row py-3">
-          <div class="col-md-1">
-            <img [src]="item?.imageCover" class="img-fluid" alt="">
+          <div class="col-md-3">
+            <img [src]="item?.imageCover" class="img-fluid w-75" alt="">
           </div>
-          <div class="col-md-11 d-flex justify-content-between">
+          <div class="col-md-9 d-flex justify-content-between">
             <div>
-              <h6>{{item?.product?.title}}</h6>
+              <h6>{{item?.title}}</h6>
               <h6>Price : {{item?.price}}</h6>
               <button class="border-0 m-0 p-0 text-danger" (click)="removeItem(item?._id)"><i
                   class="fa-regular fa-trash-can me-1"></i>Remove</button>

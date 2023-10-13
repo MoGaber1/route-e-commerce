@@ -14,13 +14,34 @@ export class MainComponent implements OnInit {
 
 
   products:Product[]=[];
-  // wishlistDetails:string[]=[];
+  wishlistData:string[]=[];
   searchTerm:string = '';
+
+
 
 constructor (private _ProductsService:ProductsService,
   private _CartService:CartService, private _WishlistService:WishlistService){
 
 }
+
+  ngOnInit(): void {
+  this._ProductsService.getProducts().subscribe({
+    next : (response) => this.products = response.data
+  })
+
+
+  this._WishlistService.getUserWishList().subscribe({
+    next:(response) =>{
+
+      const newWishData = response.data.map((item:any)=>item._id)
+      console.log('newData',newWishData);
+       this.wishlistData = newWishData 
+
+    }
+  })
+
+  }
+
 
 
 addToCart(productId:any){
@@ -37,9 +58,25 @@ addToCart(productId:any){
 addToWishList(productId:any){
   this._WishlistService.addToWishList(productId).subscribe({
     next:(response)=>{console.log(response);
+      this.wishlistData = response.data
+
     },
     error:(err)=>{console.log(err);
     }
+  })
+}
+
+removeWishItem(productId:any){
+  this._WishlistService.removeWishItem(productId).subscribe({
+    next:(response)=> {
+      console.log(response);
+      this.wishlistData = response.data
+
+    },
+    error:(err)=>console.log(err)
+
+
+
   })
 }
 
@@ -47,13 +84,7 @@ addToWishList(productId:any){
 
 
 
-ngOnInit(): void {
 
-this._ProductsService.getProducts().subscribe({
-  next : (response) => this.products = response.data
-})
-
-}
 
 
 

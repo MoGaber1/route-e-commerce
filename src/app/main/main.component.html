@@ -22,9 +22,14 @@
 
         </a>
 
-        <a  (click)="addToWishList(product._id)" class="position-absolute top-0 end-0 cursor-pointer">
+        <a *ngIf="!wishlistData.includes($any(product._id))" (click)="addToWishList(product._id)" class="position-absolute top-0 end-0 cursor-pointer">
           <div class="px-1 m-2 rounded-2 bg-dark-subtle">
             <i class="fa-regular fa-heart" style="color: #c91818;"></i>
+          </div>
+        </a>
+        <a  *ngIf="wishlistData.includes($any(product._id))"  (click)="removeWishItem(product._id)" class="position-absolute top-0 end-0 cursor-pointer">
+          <div class="px-1 m-2 rounded-2 bg-dark-subtle">
+            <i class="fa-solid fa-heart" style="color: #c91818;"></i>
           </div>
         </a>
 
